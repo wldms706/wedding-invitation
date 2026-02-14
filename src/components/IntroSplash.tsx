@@ -49,7 +49,7 @@ export const IntroSplash: React.FC<IntroSplashProps> = ({ onComplete }) => {
           alt=""
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-black/60" />
       </div>
 
       {/* Handwriting text */}
