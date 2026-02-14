@@ -4,17 +4,23 @@ interface IntroSplashProps {
   onComplete: () => void;
 }
 
+type Stage = 'names' | 'namesOut' | 'married' | 'dogRun' | 'ready' | 'reveal' | 'done';
+
 export const IntroSplash: React.FC<IntroSplashProps> = ({ onComplete }) => {
-  const [stage, setStage] = useState<'hiding' | 'peek' | 'pop' | 'reveal' | 'done'>('hiding');
+  const [stage, setStage] = useState<Stage>('names');
 
   useEffect(() => {
-    // 까꿍이가 숨어있다가 등장
-    const t1 = setTimeout(() => setStage('peek'), 600);
-    const t2 = setTimeout(() => setStage('pop'), 1400);
-    return () => { clearTimeout(t1); clearTimeout(t2); };
+    const timers = [
+      setTimeout(() => setStage('namesOut'), 2200),
+      setTimeout(() => setStage('married'), 3000),
+      setTimeout(() => setStage('dogRun'), 4000),
+      setTimeout(() => setStage('ready'), 5800),
+    ];
+    return () => timers.forEach(clearTimeout);
   }, []);
 
   const handleClick = () => {
+    if (stage !== 'ready') return;
     setStage('reveal');
     setTimeout(() => {
       setStage('done');
@@ -24,110 +30,125 @@ export const IntroSplash: React.FC<IntroSplashProps> = ({ onComplete }) => {
 
   if (stage === 'done') return null;
 
+  const showNames = stage === 'names';
+  const showMarried = stage === 'married' || stage === 'dogRun' || stage === 'ready';
+  const dogRunning = stage === 'dogRun' || stage === 'ready';
+  const isReady = stage === 'ready';
+
   return (
     <div
       className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#f0f8ff] transition-all duration-700 ${
         stage === 'reveal' ? 'opacity-0 scale-110' : 'opacity-100 scale-100'
       }`}
-      onClick={stage === 'pop' ? handleClick : undefined}
-      style={{ cursor: stage === 'pop' ? 'pointer' : 'default' }}
+      onClick={handleClick}
+      style={{ cursor: isReady ? 'pointer' : 'default' }}
     >
       {/* Sparkles background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(12)].map((_, i) => (
+        {[...Array(15)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-1 h-1 rounded-full bg-[#5da2d5]/30"
+            className="absolute w-1 h-1 rounded-full bg-[#5da2d5]/20"
             style={{
               left: `${10 + Math.random() * 80}%`,
               top: `${10 + Math.random() * 80}%`,
-              animation: `twinkle ${1.5 + Math.random() * 2}s ease-in-out infinite`,
-              animationDelay: `${Math.random() * 2}s`,
+              animation: `twinkle ${2 + Math.random() * 3}s ease-in-out infinite`,
+              animationDelay: `${Math.random() * 3}s`,
             }}
           />
         ))}
       </div>
 
-      {/* Character container */}
-      <div className="relative mb-8">
-        {/* 까꿍이 character */}
-        <div
-          className={`transition-all duration-500 ease-out ${
-            stage === 'hiding'
-              ? 'translate-y-[100px] opacity-0 scale-50'
-              : stage === 'peek'
-              ? 'translate-y-[30px] opacity-80 scale-75'
-              : 'translate-y-0 opacity-100 scale-100'
-          }`}
-        >
-          {/* Character face */}
-          <div className="relative">
-            {/* Body/envelope */}
-            <div className="w-32 h-28 bg-white rounded-2xl shadow-lg border-2 border-[#e8d4e6] mx-auto relative overflow-hidden">
-              {/* Envelope flap */}
-              <div className="absolute top-0 left-0 w-full h-0 border-l-[64px] border-r-[64px] border-t-[40px] border-l-transparent border-r-transparent border-t-[#f5e6f0]" />
-              {/* Heart seal */}
-              <div className="absolute top-6 left-1/2 -translate-x-1/2 text-2xl">
-                💌
-              </div>
-              {/* Inner text */}
-              <div className="absolute bottom-3 left-0 w-full text-center">
-                <span className="text-[13px] text-[#c49ab8] tracking-wider">LOVE LETTER</span>
-              </div>
-            </div>
-
-            {/* Dog peeking from behind envelope */}
-            <div
-              className={`absolute -top-12 left-1/2 -translate-x-1/2 transition-all duration-300 ${
-                stage === 'hiding' ? 'translate-y-8 opacity-0' :
-                stage === 'peek' ? 'translate-y-4 opacity-100' : 'translate-y-0 opacity-100'
-              }`}
-            >
-              <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-white shadow-md">
-                <img src="/images/dog.png" alt="까꿍이" className="w-full h-full object-cover" />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* 뿅! effect */}
-        {stage === 'pop' && (
-          <div className="absolute -top-4 left-1/2 -translate-x-1/2 animate-bounce">
-            <span className="text-[#5da2d5] text-xl font-bold tracking-wider"
-              style={{textShadow: '0 0 10px rgba(93,162,213,0.3)'}}>
-              뿅 !
-            </span>
-          </div>
-        )}
-      </div>
-
-      {/* Text */}
+      {/* Names - Kim Sun Jae & Jung Ji Eun */}
       <div
-        className={`text-center transition-all duration-500 ${
-          stage === 'hiding' ? 'opacity-0 translate-y-4' :
-          stage === 'peek' ? 'opacity-50' : 'opacity-100'
+        className={`absolute transition-all duration-700 ease-in-out text-center ${
+          showNames ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-6'
         }`}
       >
-        <p className="text-xl text-[#2c3e50] tracking-[0.2em] font-light mb-2">
+        <p
+          className="text-[28px] text-[#5da2d5] tracking-wide leading-relaxed"
+          style={{ fontFamily: "'Playfair Display', serif", fontWeight: 500 }}
+        >
+          Kim Sun Jae
+        </p>
+        <p
+          className="text-[20px] text-[#a5c8e4] my-2"
+          style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic' }}
+        >
+          &
+        </p>
+        <p
+          className="text-[28px] text-[#5da2d5] tracking-wide leading-relaxed"
+          style={{ fontFamily: "'Playfair Display', serif", fontWeight: 500 }}
+        >
+          Jung Ji Eun
+        </p>
+      </div>
+
+      {/* We are getting married */}
+      <div
+        className={`transition-all duration-700 ease-in-out text-center ${
+          showMarried ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+        }`}
+      >
+        <p
+          className="text-[26px] text-[#5da2d5] tracking-wider mb-2"
+          style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontWeight: 400 }}
+        >
+          We are getting married
+        </p>
+        <div className="w-12 h-[1px] bg-[#a5c8e4]/40 mx-auto mt-4 mb-6" />
+        <p className="text-base text-[#2c3e50] tracking-[0.2em] font-light">
           김선재 & 정지은
         </p>
-        <p className="text-sm text-[#6a9bc0] tracking-[0.15em] font-light mb-8">
-          결혼합니다
-        </p>
+      </div>
 
-        {stage === 'pop' && (
-          <div className="animate-pulse">
-            <p className="text-sm text-[#a5c8e4] tracking-wider">
-              터치하여 청첩장을 열어보세요
-            </p>
+      {/* 까꿍이 running */}
+      <div
+        className={`mt-10 transition-opacity duration-500 ${dogRunning ? 'opacity-100' : 'opacity-0'}`}
+      >
+        <div
+          className={dogRunning ? 'dog-run' : ''}
+          style={{ display: 'inline-block' }}
+        >
+          <div className="w-20 h-20 rounded-full overflow-hidden border-3 border-white shadow-lg">
+            <img src="/images/dog.png" alt="까꿍이" className="w-full h-full object-cover" />
           </div>
-        )}
+        </div>
+      </div>
+
+      {/* 터치 안내 */}
+      <div
+        className={`absolute bottom-24 transition-all duration-500 ${
+          isReady ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+        }`}
+      >
+        <div className="animate-pulse">
+          <p className="text-base text-[#a5c8e4] tracking-wider">
+            터치하여 청첩장을 열어보세요
+          </p>
+        </div>
       </div>
 
       <style>{`
         @keyframes twinkle {
           0%, 100% { opacity: 0; transform: scale(0.5); }
           50% { opacity: 1; transform: scale(1.5); }
+        }
+        @keyframes dogTrot {
+          0% { transform: translateX(-120px) translateY(0) rotate(-5deg); }
+          10% { transform: translateX(-96px) translateY(-8px) rotate(3deg); }
+          20% { transform: translateX(-72px) translateY(0) rotate(-3deg); }
+          30% { transform: translateX(-48px) translateY(-8px) rotate(3deg); }
+          40% { transform: translateX(-24px) translateY(0) rotate(-3deg); }
+          50% { transform: translateX(0) translateY(-8px) rotate(3deg); }
+          60% { transform: translateX(0) translateY(0) rotate(0deg); }
+          70% { transform: translateX(0) translateY(-4px) rotate(0deg); }
+          80% { transform: translateX(0) translateY(0) rotate(0deg); }
+          100% { transform: translateX(0) translateY(0) rotate(0deg); }
+        }
+        .dog-run {
+          animation: dogTrot 1.4s ease-out forwards;
         }
       `}</style>
     </div>
