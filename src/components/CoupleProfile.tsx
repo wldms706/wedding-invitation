@@ -24,10 +24,10 @@ export const CoupleProfile: React.FC = () => {
           </div>
 
           <p className="text-sm text-[#3d5f78] font-light mb-1.5">
-            2000년생, 사랑에 몰입하는
+            2000년생,
           </p>
           <p className="text-sm text-[#3d5f78] font-light mb-2">
-            함께 성장하고 싶은 <span className="text-[#5da2d5] font-medium">ENTJ</span>
+            사랑에 몰입하는 <span className="text-[#5da2d5] font-medium">ENTJ</span>
           </p>
 
           <div className="flex flex-wrap justify-center gap-1 mb-3">
@@ -64,8 +64,7 @@ export const CoupleProfile: React.FC = () => {
 
           <div className="flex flex-wrap justify-center gap-1 mb-3">
             <span className="text-[13px] text-[#6a9bc0]">#똑순이</span>
-            <span className="text-[13px] text-[#6a9bc0]">#디지털노마드가되고싶은</span>
-            <span className="text-[13px] text-[#6a9bc0]">#현재는그냥노마드</span>
+            <span className="text-[13px] text-[#6a9bc0]">#N잡러</span>
           </div>
 
           <p className="text-sm text-[#3d5568] font-light leading-relaxed">
