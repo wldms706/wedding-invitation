@@ -17,7 +17,7 @@ export const CoupleProfile: React.FC = () => {
           {/* Profile photo */}
           <div className="w-full aspect-[3/4] rounded-xl overflow-hidden mb-3 shadow-sm">
             <img
-              src="/images/gallery/06.jpg"
+              src="/images/sunjae-profile.jpg"
               alt="신랑"
               className="w-full h-full object-cover"
             />
@@ -49,7 +49,7 @@ export const CoupleProfile: React.FC = () => {
           {/* Profile photo */}
           <div className="w-full aspect-[3/4] rounded-xl overflow-hidden mb-3 shadow-sm">
             <img
-              src="/images/gallery/05.jpg"
+              src="/images/jieun-profile.jpg"
               alt="신부"
               className="w-full h-full object-cover"
             />
