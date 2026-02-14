@@ -17,7 +17,7 @@ const ContactItem: React.FC<ContactItemProps> = ({ role, name, phone, color }) =
   if (!phone) return null;
   return (
     <div className="text-center py-3">
-      <p className="text-xs text-[#3d5f78] font-light mb-2.5">
+      <p className="text-sm text-[#3d5f78] font-light mb-2.5">
         {role} <span className="text-[#2c3e50] font-medium">{name}</span>
       </p>
       <div className="flex justify-center gap-4">
@@ -43,7 +43,7 @@ const ContactItem: React.FC<ContactItemProps> = ({ role, name, phone, color }) =
 export const ContactSection: React.FC<ContactSectionProps> = ({ couple }) => {
   return (
     <div className="text-center animate-fade-in-up">
-      <p className="text-[10px] tracking-[0.5em] text-[#6a9bc0] uppercase mb-8 font-light">
+      <p className="text-[13px] tracking-[0.5em] text-[#6a9bc0] uppercase mb-8 font-light">
         Contact
       </p>
 
@@ -51,14 +51,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ couple }) => {
         <Phone size={20} className="text-[#a5c8e4]" strokeWidth={1} />
       </div>
 
-      <p className="text-lg tracking-[0.2em] text-[#2c3e50] font-light mb-8">
+      <p className="text-xl tracking-[0.2em] text-[#2c3e50] font-light mb-8">
         연락하기
       </p>
 
       <div className="grid grid-cols-2 gap-4">
         {/* 신랑측 */}
         <div>
-          <p className="text-sm text-[#5da2d5] tracking-wider mb-4 font-medium pb-2 border-b border-[#5da2d5]/20">
+          <p className="text-base text-[#5da2d5] tracking-wider mb-4 font-medium pb-2 border-b border-[#5da2d5]/20">
             신랑측
           </p>
           <div className="space-y-4">
@@ -85,7 +85,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ couple }) => {
 
         {/* 신부측 */}
         <div>
-          <p className="text-sm text-[#e8a0b4] tracking-wider mb-4 font-medium pb-2 border-b border-[#e8a0b4]/20">
+          <p className="text-base text-[#e8a0b4] tracking-wider mb-4 font-medium pb-2 border-b border-[#e8a0b4]/20">
             신부측
           </p>
           <div className="space-y-4">

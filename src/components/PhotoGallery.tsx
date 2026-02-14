@@ -48,7 +48,7 @@ export const PhotoGallery: React.FC = () => {
 
   return (
     <div className="text-center animate-fade-in-up">
-      <p className="text-[10px] tracking-[0.5em] text-[#6a9bc0] uppercase mb-8 font-light">
+      <p className="text-[13px] tracking-[0.5em] text-[#6a9bc0] uppercase mb-8 font-light">
         Gallery
       </p>
 
@@ -56,7 +56,7 @@ export const PhotoGallery: React.FC = () => {
         <Camera size={20} className="text-[#a5c8e4]" strokeWidth={1} />
       </div>
 
-      <p className="text-lg tracking-[0.2em] text-[#2c3e50] font-light mb-8">
+      <p className="text-xl tracking-[0.2em] text-[#2c3e50] font-light mb-8">
         우리의 순간들
       </p>
 
@@ -101,7 +101,7 @@ export const PhotoGallery: React.FC = () => {
       </div>
 
       {/* Counter */}
-      <p className="mt-4 text-xs text-[#6a9bc0] tracking-wider font-light">
+      <p className="mt-4 text-sm text-[#6a9bc0] tracking-wider font-light">
         {current + 1} / {photos.length}
       </p>
 

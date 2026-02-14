@@ -50,7 +50,7 @@ const timeline: TimelineItem[] = [
 export const OurStory: React.FC = () => {
   return (
     <div className="text-center animate-fade-in-up">
-      <p className="text-[10px] tracking-[0.5em] text-[#6a9bc0] uppercase mb-8 font-light">
+      <p className="text-[13px] tracking-[0.5em] text-[#6a9bc0] uppercase mb-8 font-light">
         Our Story
       </p>
 
@@ -58,7 +58,7 @@ export const OurStory: React.FC = () => {
         <Heart size={20} className="text-[#a5c8e4]" strokeWidth={1} />
       </div>
 
-      <p className="text-lg tracking-[0.2em] text-[#2c3e50] font-light mb-12">
+      <p className="text-xl tracking-[0.2em] text-[#2c3e50] font-light mb-12">
         우리의 이야기
       </p>
 
@@ -72,13 +72,13 @@ export const OurStory: React.FC = () => {
                 <div className="pt-2">
                   {/* Text centered above */}
                   <div className="text-center mb-4 px-4">
-                    <p className="text-[10px] text-[#6a9bc0] tracking-wider mb-1.5 font-light">
+                    <p className="text-[13px] text-[#6a9bc0] tracking-wider mb-1.5 font-light">
                       {item.date}
                     </p>
-                    <p className="text-sm text-[#2c3e50] tracking-wider mb-2 font-medium">
+                    <p className="text-base text-[#2c3e50] tracking-wider mb-2 font-medium">
                       {item.title}
                     </p>
-                    <p className="text-xs text-[#3d5f78] font-light leading-relaxed whitespace-pre-line">
+                    <p className="text-sm text-[#3d5f78] font-light leading-relaxed whitespace-pre-line">
                       {item.description}
                     </p>
                   </div>
@@ -130,7 +130,7 @@ export const OurStory: React.FC = () => {
                           ) : (
                             <Camera size={24} className="text-[#a5c8e4]" />
                           )}
-                          <span className="text-[10px] text-[#6a9bc0] tracking-wider">
+                          <span className="text-[13px] text-[#6a9bc0] tracking-wider">
                             {item.mediaType === 'video' ? 'VIDEO' : 'PHOTO'}
                           </span>
                         </div>
@@ -140,13 +140,13 @@ export const OurStory: React.FC = () => {
 
                   {/* Text */}
                   <div className={`w-[45%] flex-shrink-0 pt-4 ${item.align === 'left' ? 'text-left' : 'text-right'}`}>
-                    <p className="text-[10px] text-[#6a9bc0] tracking-wider mb-1.5 font-light">
+                    <p className="text-[13px] text-[#6a9bc0] tracking-wider mb-1.5 font-light">
                       {item.date}
                     </p>
-                    <p className="text-sm text-[#2c3e50] tracking-wider mb-2 font-medium">
+                    <p className="text-base text-[#2c3e50] tracking-wider mb-2 font-medium">
                       {item.title}
                     </p>
-                    <p className="text-xs text-[#3d5f78] font-light leading-relaxed whitespace-pre-line">
+                    <p className="text-sm text-[#3d5f78] font-light leading-relaxed whitespace-pre-line">
                       {item.description}
                     </p>
                   </div>

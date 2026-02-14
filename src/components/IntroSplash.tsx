@@ -72,7 +72,7 @@ export const IntroSplash: React.FC<IntroSplashProps> = ({ onComplete }) => {
               </div>
               {/* Inner text */}
               <div className="absolute bottom-3 left-0 w-full text-center">
-                <span className="text-[10px] text-[#c49ab8] tracking-wider">LOVE LETTER</span>
+                <span className="text-[13px] text-[#c49ab8] tracking-wider">LOVE LETTER</span>
               </div>
             </div>
 
@@ -93,7 +93,7 @@ export const IntroSplash: React.FC<IntroSplashProps> = ({ onComplete }) => {
         {/* 뿅! effect */}
         {stage === 'pop' && (
           <div className="absolute -top-4 left-1/2 -translate-x-1/2 animate-bounce">
-            <span className="text-[#5da2d5] text-lg font-bold tracking-wider"
+            <span className="text-[#5da2d5] text-xl font-bold tracking-wider"
               style={{textShadow: '0 0 10px rgba(93,162,213,0.3)'}}>
               뿅 !
             </span>
@@ -108,16 +108,16 @@ export const IntroSplash: React.FC<IntroSplashProps> = ({ onComplete }) => {
           stage === 'peek' ? 'opacity-50' : 'opacity-100'
         }`}
       >
-        <p className="text-lg text-[#2c3e50] tracking-[0.2em] font-light mb-2">
+        <p className="text-xl text-[#2c3e50] tracking-[0.2em] font-light mb-2">
           김선재 & 정지은
         </p>
-        <p className="text-xs text-[#6a9bc0] tracking-[0.15em] font-light mb-8">
+        <p className="text-sm text-[#6a9bc0] tracking-[0.15em] font-light mb-8">
           결혼합니다
         </p>
 
         {stage === 'pop' && (
           <div className="animate-pulse">
-            <p className="text-[11px] text-[#a5c8e4] tracking-wider">
+            <p className="text-sm text-[#a5c8e4] tracking-wider">
               터치하여 청첩장을 열어보세요
             </p>
           </div>

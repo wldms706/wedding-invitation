@@ -67,7 +67,7 @@ const App: React.FC = () => {
       <Hero couple={couple} />
 
       {/* Content wrapper with more space from Hero */}
-      <div className="px-8 space-y-32 py-32 bg-white/40 backdrop-blur-[2px]">
+      <div className="px-8 space-y-32 py-32 bg-white/40">
         <InvitationContent greeting={greeting} couple={couple} />
 
         <CoupleProfile />
@@ -92,7 +92,7 @@ const App: React.FC = () => {
         <DesignLineup />
       </div>
 
-      <footer className="text-center py-20 text-[#6a9bc0] text-[10px] font-light tracking-[0.3em] uppercase">
+      <footer className="text-center py-20 text-[#6a9bc0] text-[13px] font-light tracking-[0.3em] uppercase">
         <p>&copy; 2026 {couple.groomName} & {couple.brideName} WEDDING<br/>DESIGNED BY THE URBAN</p>
       </footer>
 

@@ -55,7 +55,7 @@ export const ConfigModal: React.FC<ConfigModalProps> = ({
       <div className="w-full max-w-md bg-white rounded-t-2xl max-h-[85vh] overflow-y-auto">
         {/* Header */}
         <div className="sticky top-0 bg-white border-b border-[#a5c8e4]/20 px-6 py-4 flex items-center justify-between">
-          <h2 className="text-sm tracking-[0.2em] text-[#2c3e50]">정보 수정</h2>
+          <h2 className="text-base tracking-[0.2em] text-[#2c3e50]">정보 수정</h2>
           <button
             onClick={onClose}
             className="text-[#6a9bc0] hover:text-[#5da2d5] transition-colors"
@@ -68,21 +68,21 @@ export const ConfigModal: React.FC<ConfigModalProps> = ({
         <div className="px-6 py-6 space-y-4">
           {fields.map(({ key, label }) => (
             <div key={key}>
-              <label className="block text-[11px] text-[#6a9bc0] tracking-wider mb-1.5">
+              <label className="block text-sm text-[#6a9bc0] tracking-wider mb-1.5">
                 {label}
               </label>
               <input
                 type="text"
                 value={localCouple[key]}
                 onChange={(e) => updateField(key, e.target.value)}
-                className="w-full px-4 py-2.5 bg-[#f8fbfe] border border-[#a5c8e4]/20 rounded-lg text-sm text-[#3d5568] focus:outline-none focus:border-[#5da2d5]/40 transition-colors font-[inherit]"
+                className="w-full px-4 py-2.5 bg-[#f8fbfe] border border-[#a5c8e4]/20 rounded-lg text-base text-[#3d5568] focus:outline-none focus:border-[#5da2d5]/40 transition-colors font-[inherit]"
               />
             </div>
           ))}
 
           {/* Greeting */}
           <div>
-            <label className="block text-[11px] text-[#6a9bc0] tracking-wider mb-1.5">
+            <label className="block text-sm text-[#6a9bc0] tracking-wider mb-1.5">
               인사말
             </label>
             <textarea
@@ -90,7 +90,7 @@ export const ConfigModal: React.FC<ConfigModalProps> = ({
               onChange={(e) => setLocalGreeting(e.target.value)}
               placeholder="인사말을 수정하려면 입력하세요"
               rows={4}
-              className="w-full px-4 py-2.5 bg-[#f8fbfe] border border-[#a5c8e4]/20 rounded-lg text-sm text-[#3d5568] placeholder-[#8fb8d4] focus:outline-none focus:border-[#5da2d5]/40 transition-colors resize-none font-[inherit]"
+              className="w-full px-4 py-2.5 bg-[#f8fbfe] border border-[#a5c8e4]/20 rounded-lg text-base text-[#3d5568] placeholder-[#8fb8d4] focus:outline-none focus:border-[#5da2d5]/40 transition-colors resize-none font-[inherit]"
             />
           </div>
         </div>
@@ -99,7 +99,7 @@ export const ConfigModal: React.FC<ConfigModalProps> = ({
         <div className="sticky bottom-0 bg-white border-t border-[#a5c8e4]/20 px-6 py-4">
           <button
             onClick={handleSave}
-            className="w-full flex items-center justify-center gap-2 py-3 bg-[#5da2d5] text-white text-sm tracking-wider rounded-lg hover:bg-[#4a8dbd] transition-colors"
+            className="w-full flex items-center justify-center gap-2 py-3 bg-[#5da2d5] text-white text-base tracking-wider rounded-lg hover:bg-[#4a8dbd] transition-colors"
           >
             <Save size={16} />
             저장하기

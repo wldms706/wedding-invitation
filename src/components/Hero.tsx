@@ -20,10 +20,10 @@ export const Hero: React.FC<HeroProps> = ({ couple }) => {
 
         {/* Names on photo - top corners */}
         <div className="absolute top-6 left-0 right-0 flex justify-between px-8">
-          <span className="text-white text-sm tracking-[0.2em] font-light" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.4)' }}>
+          <span className="text-white text-base tracking-[0.2em] font-light" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.4)' }}>
             {couple.groomName}
           </span>
-          <span className="text-white text-sm tracking-[0.2em] font-light" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.4)' }}>
+          <span className="text-white text-base tracking-[0.2em] font-light" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.4)' }}>
             {couple.brideName}
           </span>
         </div>
@@ -41,13 +41,13 @@ export const Hero: React.FC<HeroProps> = ({ couple }) => {
       <div className="flex-1 flex flex-col items-center justify-center py-12 px-8 animate-fade-in">
         <div className="w-6 h-[1px] bg-[#a5c8e4] mx-auto mb-8" />
 
-        <p className="text-xs tracking-[0.3em] text-[#3d5f78] font-light mb-2">
+        <p className="text-sm tracking-[0.3em] text-[#3d5f78] font-light mb-2">
           {couple.weddingDate}
         </p>
-        <p className="text-xs tracking-[0.2em] text-[#3d5f78] font-light mb-6">
+        <p className="text-sm tracking-[0.2em] text-[#3d5f78] font-light mb-6">
           {couple.weddingTime}
         </p>
-        <p className="text-xs tracking-[0.15em] text-[#6a9bc0] font-light">
+        <p className="text-sm tracking-[0.15em] text-[#6a9bc0] font-light">
           {couple.weddingLocation}
         </p>
       </div>
