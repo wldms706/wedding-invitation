@@ -111,8 +111,9 @@ export const IntroSplash: React.FC<IntroSplashProps> = ({ onComplete }) => {
           className={dogRunning ? 'dog-run' : ''}
           style={{ display: 'inline-block' }}
         >
-          <div className="w-20 h-20 rounded-full overflow-hidden border-3 border-white shadow-lg">
-            <img src="/images/dog.png" alt="까꿍이" className="w-full h-full object-cover" />
+          <div className="flex flex-col items-center">
+            <img src="/images/dog.png" alt="까꿍이" className="w-24 h-24 object-contain drop-shadow-md" />
+            <p className="text-lg text-[#5da2d5] font-medium mt-1 tracking-wider">까꿍!</p>
           </div>
         </div>
       </div>
