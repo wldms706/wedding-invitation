@@ -59,26 +59,52 @@ const App: React.FC = () => {
       {!showIntro && <Hero couple={couple} />}
 
       {/* Content wrapper with more space from Hero */}
-      {!showIntro && <div className="px-8 space-y-32 py-32 bg-white/40">
-        <InvitationContent greeting={greeting} couple={couple} />
+      {!showIntro && <div className="px-6 space-y-10 py-20 bg-white/40">
+        <div className="section-card">
+          <InvitationContent greeting={greeting} couple={couple} />
+        </div>
 
-        <CoupleProfile />
+        <div className="section-card">
+          <CoupleProfile />
+        </div>
 
-        <InterviewSection />
+        <div className="section-card">
+          <InterviewSection />
+        </div>
 
-        <OurStory />
+        <div className="section-card">
+          <OurStory />
+        </div>
 
-        <CalendarSection />
-        <TimingSection />
-        <DressCodeSection />
-        <LuckyDrawNotice />
+        <div className="section-card">
+          <CalendarSection />
+        </div>
+        <div className="section-card">
+          <TimingSection />
+        </div>
+        <div className="section-card">
+          <DressCodeSection />
+        </div>
+        <div className="section-card">
+          <LuckyDrawNotice />
+        </div>
 
-        <PhotoGallery />
-        <GuestPhotoSection />
-        <WeddingLocation couple={couple} />
-        <ContactSection couple={couple} />
-        <AccountSection couple={couple} />
-        <div ref={rsvpRef}>
+        <div className="section-card">
+          <PhotoGallery />
+        </div>
+        <div className="section-card">
+          <GuestPhotoSection />
+        </div>
+        <div className="section-card">
+          <WeddingLocation couple={couple} />
+        </div>
+        <div className="section-card">
+          <ContactSection couple={couple} />
+        </div>
+        <div className="section-card">
+          <AccountSection couple={couple} />
+        </div>
+        <div ref={rsvpRef} className="section-card">
           <RSVPSection />
         </div>
         <DesignLineup />
