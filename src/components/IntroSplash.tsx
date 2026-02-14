@@ -53,7 +53,7 @@ export const IntroSplash: React.FC<IntroSplashProps> = ({ onComplete }) => {
       </div>
 
       {/* Handwriting text */}
-      <div className="relative z-10 text-center px-8">
+      <div className="relative z-10 text-center px-8 mt-[35vh]">
         {/* Line 1: We're getting */}
         <div className="overflow-hidden mb-1">
           <p
