@@ -12,15 +12,48 @@ export const GuestPhotoSection: React.FC = () => {
   const [uploaderName, setUploaderName] = useState('');
   const fileRef = useRef<HTMLInputElement>(null);
 
-  const toBase64 = (file: File): Promise<string> => {
+  // 이미지 압축: 최대 1920px로 리사이즈 + JPEG 80% 품질
+  const compressImage = (file: File): Promise<string> => {
     return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = () => {
-        const result = reader.result as string;
-        resolve(result.split(',')[1]);
+      const img = new Image();
+      img.onload = () => {
+        const MAX = 1920;
+        let { width, height } = img;
+        if (width > MAX || height > MAX) {
+          if (width > height) {
+            height = Math.round(height * (MAX / width));
+            width = MAX;
+          } else {
+            width = Math.round(width * (MAX / height));
+            height = MAX;
+          }
+        }
+        const canvas = document.createElement('canvas');
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d')!;
+        ctx.drawImage(img, 0, 0, width, height);
+        const dataUrl = canvas.toDataURL('image/jpeg', 0.8);
+        resolve(dataUrl.split(',')[1]);
+        URL.revokeObjectURL(img.src);
       };
-      reader.onerror = reject;
-      reader.readAsDataURL(file);
+      img.onerror = reject;
+      img.src = URL.createObjectURL(file);
+    });
+  };
+
+  // 동시 업로드 (최대 3개 병렬)
+  const uploadFile = async (file: File) => {
+    const base64 = await compressImage(file);
+    await fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        file: base64,
+        fileName: uploaderName ? `${uploaderName}_${file.name}` : file.name,
+        mimeType: 'image/jpeg',
+      }),
     });
   };
 
@@ -33,27 +66,27 @@ export const GuestPhotoSection: React.FC = () => {
     setTotalCount(files.length);
     setDone(false);
 
-    for (let i = 0; i < files.length; i++) {
-      try {
-        const file = files[i];
-        const base64 = await toBase64(file);
+    const fileArray = Array.from(files);
+    const CONCURRENCY = 3;
+    let completed = 0;
 
-        await fetch(APPS_SCRIPT_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            file: base64,
-            fileName: uploaderName ? `${uploaderName}_${file.name}` : file.name,
-            mimeType: file.type,
-          }),
-        });
-
-        setUploadCount(i + 1);
-      } catch {
-        // 개별 파일 실패 시 다음 파일 계속 진행
+    const uploadNext = async (queue: File[]) => {
+      while (queue.length > 0) {
+        const file = queue.shift()!;
+        try {
+          await uploadFile(file);
+        } catch {
+          // 개별 파일 실패 시 계속 진행
+        }
+        completed++;
+        setUploadCount(completed);
       }
-    }
+    };
+
+    // 파일을 CONCURRENCY개의 큐로 분배하여 동시 실행
+    const queues: File[][] = Array.from({ length: Math.min(CONCURRENCY, fileArray.length) }, () => []);
+    fileArray.forEach((file, i) => queues[i % queues.length].push(file));
+    await Promise.all(queues.map(q => uploadNext(q)));
 
     setUploading(false);
     setDone(true);
