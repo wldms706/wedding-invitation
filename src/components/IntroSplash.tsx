@@ -110,12 +110,6 @@ export const IntroSplash: React.FC<IntroSplashProps> = ({ onComplete }) => {
               alt="까꿍이"
               className="w-20 h-20 object-contain drop-shadow-[0_2px_8px_rgba(255,255,255,0.3)]"
             />
-            <p
-              className="mt-1 text-white/90 text-base tracking-wider"
-              style={{ fontFamily: "'Great Vibes', cursive", fontSize: '22px' }}
-            >
-              까꿍!
-            </p>
           </div>
         </div>
       </div>
