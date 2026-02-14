@@ -15,7 +15,7 @@ const timeline: TimelineItem[] = [
   {
     date: '2025.04.20',
     title: '첫만남',
-    description: '저희는 범블이라는 어플에서 만났어요. "각자 외국인을 만나고싶었거든요? 그런데 자유로운 영혼같은 저희 둘이 만났지 뭐에요?"',
+    description: '저희는 범블이라는 어플에서 만났어요.\n"각자 외국인을 만나고싶었거든요? 그런데 자유로운 영혼같은 저희 둘이 만났지 뭐에요?"',
     mediaType: 'video',
     mediaSrc: '/images/story/first-meet.mp4',
     align: 'left',
@@ -32,7 +32,7 @@ const timeline: TimelineItem[] = [
   {
     date: '2025.08',
     title: '4개월',
-    description: '만났을 때부터 동거를 시작하게 되었어요.',
+    description: '만났을 때부터 동거를\n시작하게 되었어요.',
     mediaType: 'photo',
     mediaSrc: '/images/story/4months.jpg',
     align: 'left',
@@ -78,7 +78,7 @@ export const OurStory: React.FC = () => {
                     <p className="text-base text-[#2c3e50] tracking-wider mb-2 font-medium">
                       {item.title}
                     </p>
-                    <p className="text-sm text-[#3d5f78] font-light leading-relaxed">
+                    <p className="text-sm text-[#3d5f78] font-light leading-relaxed whitespace-pre-line">
                       {item.description}
                     </p>
                   </div>
@@ -146,7 +146,7 @@ export const OurStory: React.FC = () => {
                     <p className="text-base text-[#2c3e50] tracking-wider mb-2 font-medium">
                       {item.title}
                     </p>
-                    <p className="text-sm text-[#3d5f78] font-light leading-relaxed">
+                    <p className="text-sm text-[#3d5f78] font-light leading-relaxed whitespace-pre-line">
                       {item.description}
                     </p>
                   </div>
