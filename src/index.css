@@ -6,6 +6,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 html {
@@ -60,9 +62,15 @@ body {
 .section-card {
   background: rgba(255, 255, 255, 0.6);
   border-radius: 20px;
-  padding: 2rem 1.5rem;
+  padding: 2rem 1rem;
   border: 1px solid rgba(165, 200, 228, 0.15);
   box-shadow: 0 2px 12px rgba(93, 162, 213, 0.06);
+}
+
+@media (min-width: 400px) {
+  .section-card {
+    padding: 2rem 1.5rem;
+  }
 }
 
 /* Staggered animation delays */
