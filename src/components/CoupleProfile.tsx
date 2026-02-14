@@ -24,10 +24,10 @@ export const CoupleProfile: React.FC = () => {
           </div>
 
           <p className="text-sm text-[#3d5f78] font-light mb-1.5">
-            2000년생,
+            2000년생, 사랑에 몰입하며
           </p>
           <p className="text-sm text-[#3d5f78] font-light mb-2">
-            사랑에 몰입하는 <span className="text-[#5da2d5] font-medium">ENTJ</span>
+            함께 성장하고 싶은 <span className="text-[#5da2d5] font-medium">ENTJ</span>
           </p>
 
           <div className="flex flex-wrap justify-center gap-1 mb-3">
