@@ -56,10 +56,10 @@ const App: React.FC = () => {
       {showIntro && <IntroSplash onComplete={() => setShowIntro(false)} />}
 
       {/* Main Sections */}
-      <Hero couple={couple} />
+      {!showIntro && <Hero couple={couple} />}
 
       {/* Content wrapper with more space from Hero */}
-      <div className="px-8 space-y-32 py-32 bg-white/40">
+      {!showIntro && <div className="px-8 space-y-32 py-32 bg-white/40">
         <InvitationContent greeting={greeting} couple={couple} />
 
         <CoupleProfile />
@@ -82,11 +82,11 @@ const App: React.FC = () => {
           <RSVPSection />
         </div>
         <DesignLineup />
-      </div>
+      </div>}
 
-      <footer className="text-center py-20 text-[#6a9bc0] text-[13px] font-light tracking-[0.3em] uppercase">
+      {!showIntro && <footer className="text-center py-20 text-[#6a9bc0] text-[13px] font-light tracking-[0.3em] uppercase">
         <p>&copy; 2026 {couple.groomName} & {couple.brideName} WEDDING<br/>DESIGNED BY THE URBAN</p>
-      </footer>
+      </footer>}
 
       {/* RSVP Popup */}
       {!showIntro && (
