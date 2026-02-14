@@ -40,7 +40,7 @@ const timeline: TimelineItem[] = [
   {
     date: '2026.04.19',
     title: 'Wedding Day!',
-    description: '저희는 만난지 1년 되는 날 부부가 됩니다.',
+    description: '만난지 1년 되는 날, 저희 부부가 됩니다.',
     mediaType: 'photo',
     mediaSrc: '/images/story/wedding-day.jpg',
     align: 'right',
