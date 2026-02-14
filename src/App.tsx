@@ -7,7 +7,7 @@ import { WeddingLocation } from './components/WeddingLocation';
 import { AccountSection } from './components/AccountSection';
 import { RSVPSection } from './components/RSVPSection';
 import { RSVPPopup } from './components/RSVPPopup';
-import { ConfigModal } from './components/ConfigModal';
+
 import { DesignLineup } from './components/DesignLineup';
 import { CalendarSection } from './components/CalendarSection';
 import { TimingSection } from './components/TimingSection';
@@ -19,11 +19,11 @@ import { CoupleProfile } from './components/CoupleProfile';
 import { ContactSection } from './components/ContactSection';
 import { InterviewSection } from './components/InterviewSection';
 import { CoupleInfo } from './types';
-import { Heart } from 'lucide-react';
+
 
 const App: React.FC = () => {
   const [showIntro, setShowIntro] = useState(true);
-  const [showConfig, setShowConfig] = useState(false);
+
   const rsvpRef = useRef<HTMLDivElement>(null);
   const [couple, setCouple] = useState<CoupleInfo>({
     groomName: '김선재',
@@ -54,14 +54,6 @@ const App: React.FC = () => {
     <div className="relative max-w-md mx-auto min-h-screen shadow-2xl bg-[#f0f8ff] text-[#2c3e50] overflow-x-hidden pb-10">
       {/* Intro Splash */}
       {showIntro && <IntroSplash onComplete={() => setShowIntro(false)} />}
-
-      {/* Configuration Toggle */}
-      <button
-        onClick={() => setShowConfig(true)}
-        className="fixed bottom-6 right-6 z-50 bg-white/90 backdrop-blur-md p-3 rounded-full shadow-lg border border-[#a5c8e4] hover:scale-110 transition-all text-[#5da2d5]"
-      >
-        <Heart size={20} fill="#5da2d5" />
-      </button>
 
       {/* Main Sections */}
       <Hero couple={couple} />
@@ -106,14 +98,6 @@ const App: React.FC = () => {
         />
       )}
 
-      {showConfig && (
-        <ConfigModal
-          couple={couple}
-          setCouple={setCouple}
-          setGreeting={setGreeting}
-          onClose={() => setShowConfig(false)}
-        />
-      )}
     </div>
   );
 };
