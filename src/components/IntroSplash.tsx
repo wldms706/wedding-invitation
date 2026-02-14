@@ -49,7 +49,7 @@ export const IntroSplash: React.FC<IntroSplashProps> = ({ onComplete }) => {
           alt=""
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-black/30" />
       </div>
 
       {/* Handwriting text */}
@@ -60,8 +60,8 @@ export const IntroSplash: React.FC<IntroSplashProps> = ({ onComplete }) => {
             className={`handwrite-line ${showLine1 ? 'animate-handwrite' : 'opacity-0'}`}
             style={{
               fontFamily: "'Great Vibes', cursive",
-              fontSize: '52px',
-              color: '#f2c4c4',
+              fontSize: '64px',
+              color: '#a5d4f7',
               lineHeight: 1.2,
             }}
           >
@@ -75,8 +75,8 @@ export const IntroSplash: React.FC<IntroSplashProps> = ({ onComplete }) => {
             className={`handwrite-line ${showLine2 ? 'animate-handwrite' : 'opacity-0'}`}
             style={{
               fontFamily: "'Great Vibes', cursive",
-              fontSize: '56px',
-              color: '#f2c4c4',
+              fontSize: '68px',
+              color: '#a5d4f7',
               lineHeight: 1.2,
             }}
           >
