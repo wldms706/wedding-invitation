@@ -111,7 +111,7 @@ const App: React.FC = () => {
       </div>}
 
       {!showIntro && <footer className="text-center py-20 text-[#6a9bc0] text-[13px] font-light tracking-[0.3em] uppercase">
-        <p>&copy; 2026 {couple.groomName} & {couple.brideName} WEDDING<br/>DESIGNED BY THE URBAN</p>
+        <p>&copy; 2026 {couple.groomName} & {couple.brideName} WEDDING<br/>DESIGNED BY JIEUN</p>
       </footer>}
 
       {/* RSVP Popup */}
