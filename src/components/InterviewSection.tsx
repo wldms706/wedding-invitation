@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MessageCircle, ChevronDown, ChevronUp, Heart } from 'lucide-react';
+import { MessageCircle, Heart, X } from 'lucide-react';
 
 interface QnA {
   question: string;
@@ -50,121 +50,134 @@ const seriousInterviews: SeriousQnA[] = [
 ];
 
 export const InterviewSection: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   return (
-    <div className="text-center animate-fade-in-up">
-      <p className="text-[10px] tracking-[0.5em] text-[#6a9bc0] uppercase mb-8 font-light">
-        Interview
-      </p>
+    <>
+      <div className="text-center animate-fade-in-up">
+        <p className="text-[10px] tracking-[0.5em] text-[#6a9bc0] uppercase mb-8 font-light">
+          Interview
+        </p>
 
-      <div className="flex justify-center mb-6">
-        <MessageCircle size={20} className="text-[#a5c8e4]" strokeWidth={1} />
+        <div className="flex justify-center mb-6">
+          <MessageCircle size={20} className="text-[#a5c8e4]" strokeWidth={1} />
+        </div>
+
+        <p className="text-lg tracking-[0.2em] text-[#2c3e50] font-light mb-4">
+          웨딩 인터뷰
+        </p>
+
+        <p className="text-sm text-[#3d5f78] font-light leading-relaxed mb-6">
+          두 분의 인터뷰를 준비했습니다.<br />
+          인터뷰를 확인해보세요.
+        </p>
+
+        <button
+          onClick={() => setShowModal(true)}
+          className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-[#5da2d5] text-white text-sm tracking-wider hover:bg-[#4a8fc2] transition-colors shadow-md"
+        >
+          <MessageCircle size={14} />
+          인터뷰 읽어보기
+        </button>
       </div>
 
-      <p className="text-lg tracking-[0.2em] text-[#2c3e50] font-light mb-4">
-        웨딩 인터뷰
-      </p>
+      {/* 모달 */}
+      {showModal && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center px-4">
+          <div className="absolute inset-0 bg-black/50" onClick={() => setShowModal(false)} />
+          <div className="relative bg-white rounded-2xl w-full max-w-md max-h-[90vh] overflow-y-auto shadow-2xl">
+            {/* 모달 헤더 */}
+            <div className="sticky top-0 bg-white flex items-center justify-between px-6 py-4 border-b border-gray-100 rounded-t-2xl z-10">
+              <p className="text-base text-[#2c3e50] tracking-wider font-medium">웨딩 인터뷰</p>
+              <button onClick={() => setShowModal(false)} className="text-[#6a9bc0] hover:text-[#3d5f78] transition-colors">
+                <X size={22} />
+              </button>
+            </div>
 
-      <p className="text-sm text-[#3d5f78] font-light leading-relaxed mb-6">
-        두 분의 인터뷰를 준비했습니다.<br />
-        인터뷰를 확인해보세요.
-      </p>
+            {/* 모달 내용 */}
+            <div className="p-6">
+              {/* 재미있는 인터뷰 */}
+              <div className="space-y-5">
+                {funnyInterviews.map((item, index) => (
+                  <div
+                    key={index}
+                    className="bg-[#f8fbff] rounded-lg p-4 border border-[#a5c8e4]/10 text-left"
+                  >
+                    <p className="text-sm text-[#5da2d5] font-medium mb-3 flex items-start gap-2">
+                      <span className="text-[#6a9bc0] font-light">Q.</span>
+                      {item.question}
+                    </p>
 
-      {/* Toggle Button */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-[#5da2d5] text-white text-sm tracking-wider hover:bg-[#4a8fc2] transition-colors shadow-md"
-      >
-        인터뷰 읽어보기
-        {isOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-      </button>
+                    <div className="mb-2 pl-2 border-l-2 border-[#5da2d5]/30">
+                      <p className="text-[10px] text-[#5da2d5] tracking-wider mb-1 font-medium">
+                        신랑
+                      </p>
+                      <p className="text-xs text-[#3d5568] font-light leading-relaxed">
+                        {item.groomAnswer}
+                      </p>
+                    </div>
 
-      {/* Interview Content */}
-      <div
-        className={`overflow-hidden transition-all duration-500 ease-in-out ${
-          isOpen ? 'max-h-[2000px] opacity-100 mt-8' : 'max-h-0 opacity-0 mt-0'
-        }`}
-      >
-        {/* 재미있는 인터뷰 */}
-        <div className="space-y-6">
-          {funnyInterviews.map((item, index) => (
-            <div
-              key={index}
-              className="bg-white/60 rounded-lg p-5 border border-[#a5c8e4]/10 text-left"
-            >
-              <p className="text-sm text-[#5da2d5] font-medium mb-3 flex items-start gap-2">
-                <span className="text-[#6a9bc0] font-light">Q.</span>
-                {item.question}
-              </p>
+                    <div className="pl-2 border-l-2 border-[#e8a0b4]/30">
+                      <p className="text-[10px] text-[#e8a0b4] tracking-wider mb-1 font-medium">
+                        신부
+                      </p>
+                      <p className="text-xs text-[#3d5568] font-light leading-relaxed">
+                        {item.brideAnswer}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
 
-              <div className="mb-2 pl-2 border-l-2 border-[#5da2d5]/30">
-                <p className="text-[10px] text-[#5da2d5] tracking-wider mb-1 font-medium">
-                  신랑
-                </p>
-                <p className="text-xs text-[#3d5568] font-light leading-relaxed">
-                  {item.groomAnswer}
+              {/* 진심 파트 전환 */}
+              <div className="text-center py-8">
+                <Heart size={14} className="text-[#e8a0b4] mx-auto mb-4" fill="#e8a0b4" />
+                <p className="text-sm text-[#3d5f78] font-light leading-relaxed">
+                  장난이었고…<br />
+                  <span className="text-[#2c3e50] font-medium mt-1 inline-block">이제는 진짜 이야기입니다.</span>
                 </p>
               </div>
 
-              <div className="pl-2 border-l-2 border-[#e8a0b4]/30">
-                <p className="text-[10px] text-[#e8a0b4] tracking-wider mb-1 font-medium">
-                  신부
-                </p>
-                <p className="text-xs text-[#3d5568] font-light leading-relaxed">
-                  {item.brideAnswer}
-                </p>
+              {/* 진심 인터뷰 */}
+              <div className="space-y-5">
+                {seriousInterviews.map((item, index) => (
+                  <div
+                    key={index}
+                    className="bg-[#f8fbff] rounded-lg p-4 border border-[#a5c8e4]/10 text-left"
+                  >
+                    <p className="text-sm text-[#5da2d5] font-medium mb-3 flex items-start gap-2">
+                      <span className="text-[#6a9bc0] font-light">Q.</span>
+                      {item.question}
+                    </p>
+
+                    {item.groomAnswer && (
+                      <div className={`pl-2 border-l-2 border-[#5da2d5]/30 ${item.brideAnswer ? 'mb-3' : ''}`}>
+                        <p className="text-[10px] text-[#5da2d5] tracking-wider mb-1 font-medium">
+                          신랑
+                        </p>
+                        <p className="text-xs text-[#3d5568] font-light leading-relaxed whitespace-pre-line">
+                          {item.groomAnswer}
+                        </p>
+                      </div>
+                    )}
+
+                    {item.brideAnswer && (
+                      <div className="pl-2 border-l-2 border-[#e8a0b4]/30">
+                        <p className="text-[10px] text-[#e8a0b4] tracking-wider mb-1 font-medium">
+                          신부
+                        </p>
+                        <p className="text-xs text-[#3d5568] font-light leading-relaxed whitespace-pre-line">
+                          {item.brideAnswer}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                ))}
               </div>
             </div>
-          ))}
+          </div>
         </div>
-
-        {/* 진심 파트 전환 */}
-        <div className="text-center py-8">
-          <Heart size={14} className="text-[#e8a0b4] mx-auto mb-4" fill="#e8a0b4" />
-          <p className="text-sm text-[#3d5f78] font-light leading-relaxed">
-            장난이었고…<br />
-            <span className="text-[#2c3e50] font-medium mt-1 inline-block">이제는 진짜 이야기입니다.</span>
-          </p>
-        </div>
-
-        {/* 진심 인터뷰 */}
-        <div className="space-y-6">
-          {seriousInterviews.map((item, index) => (
-            <div
-              key={index}
-              className="bg-white/60 rounded-lg p-5 border border-[#a5c8e4]/10 text-left"
-            >
-              <p className="text-sm text-[#5da2d5] font-medium mb-3 flex items-start gap-2">
-                <span className="text-[#6a9bc0] font-light">Q.</span>
-                {item.question}
-              </p>
-
-              {item.groomAnswer && (
-                <div className={`pl-2 border-l-2 border-[#5da2d5]/30 ${item.brideAnswer ? 'mb-2' : ''}`}>
-                  <p className="text-[10px] text-[#5da2d5] tracking-wider mb-1 font-medium">
-                    신랑
-                  </p>
-                  <p className="text-xs text-[#3d5568] font-light leading-relaxed whitespace-pre-line">
-                    {item.groomAnswer}
-                  </p>
-                </div>
-              )}
-
-              {item.brideAnswer && (
-                <div className="pl-2 border-l-2 border-[#e8a0b4]/30">
-                  <p className="text-[10px] text-[#e8a0b4] tracking-wider mb-1 font-medium">
-                    신부
-                  </p>
-                  <p className="text-xs text-[#3d5568] font-light leading-relaxed whitespace-pre-line">
-                    {item.brideAnswer}
-                  </p>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };

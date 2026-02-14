@@ -51,7 +51,7 @@ export const CoupleProfile: React.FC = () => {
             <img
               src="/images/jieun-profile.jpg"
               alt="신부"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover scale-125"
             />
           </div>
 

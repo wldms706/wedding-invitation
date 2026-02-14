@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { CameraIcon, Upload, CheckCircle, Loader2 } from 'lucide-react';
+import { CameraIcon, Upload, CheckCircle, Loader2, User } from 'lucide-react';
 
 // Google Apps Script 배포 URL (배포 후 여기에 URL 붙여넣기)
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby4g7RU7amTq6gdH_2h-kRvX5L3h8-4ZYNKYcl4FmYQJm98jqi29CPNg5Q3HTUgWoz3zQ/exec';
@@ -9,6 +9,7 @@ export const GuestPhotoSection: React.FC = () => {
   const [uploadCount, setUploadCount] = useState(0);
   const [totalCount, setTotalCount] = useState(0);
   const [done, setDone] = useState(false);
+  const [uploaderName, setUploaderName] = useState('');
   const fileRef = useRef<HTMLInputElement>(null);
 
   const toBase64 = (file: File): Promise<string> => {
@@ -43,7 +44,7 @@ export const GuestPhotoSection: React.FC = () => {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             file: base64,
-            fileName: file.name,
+            fileName: uploaderName ? `${uploaderName}_${file.name}` : file.name,
             mimeType: file.type,
           }),
         });
@@ -94,6 +95,18 @@ export const GuestPhotoSection: React.FC = () => {
           </p>
         </div>
 
+        {/* 이름 입력 */}
+        <div className="relative mb-6">
+          <User size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#a5c8e4]" />
+          <input
+            type="text"
+            value={uploaderName}
+            onChange={(e) => setUploaderName(e.target.value)}
+            placeholder="성함을 입력해주세요"
+            className="w-full pl-10 pr-4 py-3 bg-white border border-[#a5c8e4]/20 rounded-lg text-sm text-[#3d5568] placeholder-[#8fb8d4] focus:outline-none focus:border-[#5da2d5]/40 transition-colors font-[inherit]"
+          />
+        </div>
+
         {/* Hidden file input */}
         <input
           ref={fileRef}
@@ -127,7 +140,13 @@ export const GuestPhotoSection: React.FC = () => {
           </div>
         ) : (
           <button
-            onClick={() => fileRef.current?.click()}
+            onClick={() => {
+              if (!uploaderName.trim()) {
+                alert('성함을 입력해주세요!');
+                return;
+              }
+              fileRef.current?.click();
+            }}
             className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-[#5da2d5] text-white text-sm tracking-wider hover:bg-[#4a8fc2] transition-colors shadow-md"
           >
             <CameraIcon size={14} />
