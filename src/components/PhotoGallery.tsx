@@ -1,5 +1,5 @@
-import React, { useState, useRef, useCallback } from 'react';
-import { Camera, ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
+import { Camera } from 'lucide-react';
 
 const photos = [
   '/images/gallery/07.jpg',
@@ -19,33 +19,47 @@ const photos = [
   '/images/gallery/12.jpg',
 ];
 
-export const PhotoGallery: React.FC = () => {
-  const [current, setCurrent] = useState(0);
-  const touchStartX = useRef(0);
-  const touchEndX = useRef(0);
+const PhotoItem: React.FC<{ src: string; index: number }> = ({ src, index }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
 
-  const goTo = useCallback((index: number) => {
-    if (index < 0) setCurrent(photos.length - 1);
-    else if (index >= photos.length) setCurrent(0);
-    else setCurrent(index);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.unobserve(el);
+        }
+      },
+      { threshold: 0.15 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
   }, []);
 
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.touches[0].clientX;
-  };
+  return (
+    <div
+      ref={ref}
+      className="transition-all duration-700 ease-out"
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? 'translateY(0)' : 'translateY(40px)',
+        transitionDelay: `${(index % 2) * 100}ms`,
+      }}
+    >
+      <img
+        src={src}
+        alt={`웨딩 사진 ${index + 1}`}
+        className="w-full rounded-lg shadow-sm"
+        loading="lazy"
+      />
+    </div>
+  );
+};
 
-  const handleTouchMove = (e: React.TouchEvent) => {
-    touchEndX.current = e.touches[0].clientX;
-  };
-
-  const handleTouchEnd = () => {
-    const diff = touchStartX.current - touchEndX.current;
-    if (Math.abs(diff) > 50) {
-      if (diff > 0) goTo(current + 1);
-      else goTo(current - 1);
-    }
-  };
-
+export const PhotoGallery: React.FC = () => {
   return (
     <div className="text-center animate-fade-in-up">
       <p className="text-[13px] tracking-[0.5em] text-[#6a9bc0] uppercase mb-8 font-light">
@@ -60,61 +74,9 @@ export const PhotoGallery: React.FC = () => {
         우리의 순간들
       </p>
 
-      {/* Slideshow */}
-      <div className="relative">
-        <div
-          className="relative overflow-hidden rounded-lg"
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
-        >
-          <div
-            className="flex transition-transform duration-500 ease-out"
-            style={{ transform: `translateX(-${current * 100}%)` }}
-          >
-            {photos.map((src, i) => (
-              <div key={i} className="w-full flex-shrink-0">
-                <img
-                  src={src}
-                  alt={`웨딩 사진 ${i + 1}`}
-                  className="w-full aspect-[3/4] object-cover"
-                  loading="lazy"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Navigation arrows */}
-        <button
-          onClick={() => goTo(current - 1)}
-          className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/60 backdrop-blur-sm flex items-center justify-center text-[#3d5568] hover:bg-white/80 transition-colors"
-        >
-          <ChevronLeft size={18} />
-        </button>
-        <button
-          onClick={() => goTo(current + 1)}
-          className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/60 backdrop-blur-sm flex items-center justify-center text-[#3d5568] hover:bg-white/80 transition-colors"
-        >
-          <ChevronRight size={18} />
-        </button>
-      </div>
-
-      {/* Counter */}
-      <p className="mt-4 text-sm text-[#6a9bc0] tracking-wider font-light">
-        {current + 1} / {photos.length}
-      </p>
-
-      {/* Dot indicators */}
-      <div className="flex justify-center gap-1.5 mt-3">
-        {photos.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setCurrent(i)}
-            className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-              i === current ? 'bg-[#5da2d5] w-4' : 'bg-[#a5c8e4]/40'
-            }`}
-          />
+      <div className="grid grid-cols-2 gap-2">
+        {photos.map((src, i) => (
+          <PhotoItem key={src} src={src} index={i} />
         ))}
       </div>
     </div>
