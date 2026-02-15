@@ -1,22 +1,25 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Camera } from 'lucide-react';
 
-const photos = [
-  '/images/gallery/07.jpg',
+const portraitPhotos = [
   '/images/gallery/01.jpg',
   '/images/gallery/02.jpg',
   '/images/gallery/03.jpg',
   '/images/gallery/16.jpg',
-  '/images/gallery/04.jpg',
   '/images/gallery/05.jpg',
   '/images/gallery/15.jpg',
   '/images/gallery/06.jpg',
   '/images/gallery/14.jpg',
   '/images/gallery/08.jpg',
   '/images/gallery/09.jpg',
-  '/images/gallery/11.jpg',
   '/images/gallery/10.jpg',
   '/images/gallery/12.jpg',
+];
+
+const landscapePhotos = [
+  '/images/gallery/07.jpg',
+  '/images/gallery/04.jpg',
+  '/images/gallery/11.jpg',
 ];
 
 const PhotoItem: React.FC<{ src: string; index: number }> = ({ src, index }) => {
@@ -74,8 +77,16 @@ export const PhotoGallery: React.FC = () => {
         우리의 순간들
       </p>
 
-      <div className="grid grid-cols-2 gap-2">
-        {photos.map((src, i) => (
+      {/* 세로 사진 - 2열 그리드 */}
+      <div className="grid grid-cols-2 gap-2 mb-2">
+        {portraitPhotos.map((src, i) => (
+          <PhotoItem key={src} src={src} index={i} />
+        ))}
+      </div>
+
+      {/* 가로 사진 - 풀 너비 */}
+      <div className="grid grid-cols-1 gap-2">
+        {landscapePhotos.map((src, i) => (
           <PhotoItem key={src} src={src} index={i} />
         ))}
       </div>
