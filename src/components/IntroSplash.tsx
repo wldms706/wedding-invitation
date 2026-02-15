@@ -45,7 +45,7 @@ export const IntroSplash: React.FC<IntroSplashProps> = ({ onComplete }) => {
       {/* Background photo with dark overlay */}
       <div className="absolute inset-0">
         <img
-          src="/images/hero.jpg"
+          src="/images/intro-bg.jpg"
           alt=""
           className="w-full h-full object-cover"
         />
