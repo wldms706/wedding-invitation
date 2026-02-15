@@ -10,6 +10,10 @@ export const IntroSplash: React.FC<IntroSplashProps> = ({ onComplete }) => {
   const [stage, setStage] = useState<Stage>('writing1');
 
   useEffect(() => {
+    // Preload hero image while intro is showing
+    const img = new Image();
+    img.src = '/images/hero.jpg';
+
     const timers = [
       setTimeout(() => setStage('writing2'), 2000),
       setTimeout(() => setStage('dog'), 3800),
