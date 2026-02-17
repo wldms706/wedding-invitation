@@ -24,7 +24,7 @@ export const CoupleProfile: React.FC = () => {
           </div>
 
           <p className="text-sm text-[#1a1a1a] font-light mb-1.5">
-            2000년생, 사랑에 몰입하며
+            사랑에 몰입하며
           </p>
           <p className="text-sm text-[#1a1a1a] font-light mb-2">
             함께 성장하고 싶은 <span className="text-[#2b5797] font-medium">ENTJ</span>
@@ -56,7 +56,7 @@ export const CoupleProfile: React.FC = () => {
           </div>
 
           <p className="text-sm text-[#1a1a1a] font-light mb-1.5">
-            1993년생, 말보다 행동과
+            말보다 행동과
           </p>
           <p className="text-sm text-[#1a1a1a] font-light mb-2">
             신뢰로 애정을 표현하는 <span className="text-[#c97b8e] font-medium">ESTJ</span>
