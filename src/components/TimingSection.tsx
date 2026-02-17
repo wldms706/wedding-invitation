@@ -32,6 +32,7 @@ export const TimingSection: React.FC = () => {
           <p>혼인 서약</p>
           <p>성혼 선언</p>
           <p>축가</p>
+          <p>럭키드로우</p>
           <p>폐식사</p>
         </div>
       </div>
