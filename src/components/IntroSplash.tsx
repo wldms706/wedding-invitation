@@ -4,7 +4,7 @@ interface IntroSplashProps {
   onComplete: () => void;
 }
 
-type Stage = 'writing1' | 'writing2' | 'dog' | 'ready' | 'reveal' | 'done';
+type Stage = 'writing1' | 'writing2' | 'dog' | 'reveal' | 'done';
 
 export const IntroSplash: React.FC<IntroSplashProps> = ({ onComplete }) => {
   const [stage, setStage] = useState<Stage>('writing1');
@@ -17,34 +17,26 @@ export const IntroSplash: React.FC<IntroSplashProps> = ({ onComplete }) => {
     const timers = [
       setTimeout(() => setStage('writing2'), 2000),
       setTimeout(() => setStage('dog'), 3800),
-      setTimeout(() => setStage('ready'), 5500),
+      setTimeout(() => setStage('reveal'), 5500),
+      setTimeout(() => {
+        setStage('done');
+        onComplete();
+      }, 6300),
     ];
     return () => timers.forEach(clearTimeout);
-  }, []);
-
-  const handleClick = () => {
-    if (stage !== 'ready') return;
-    setStage('reveal');
-    setTimeout(() => {
-      setStage('done');
-      onComplete();
-    }, 800);
-  };
+  }, [onComplete]);
 
   if (stage === 'done') return null;
 
-  const showLine1 = stage !== 'writing1' || true; // always start writing line 1
-  const showLine2 = stage === 'writing2' || stage === 'dog' || stage === 'ready';
-  const showDog = stage === 'dog' || stage === 'ready';
-  const isReady = stage === 'ready';
+  const showLine1 = true;
+  const showLine2 = stage === 'writing2' || stage === 'dog' || stage === 'reveal';
+  const showDog = stage === 'dog' || stage === 'reveal';
 
   return (
     <div
       className={`fixed inset-0 z-[100] flex flex-col items-center justify-center transition-all duration-700 ${
         stage === 'reveal' ? 'opacity-0 scale-110' : 'opacity-100 scale-100'
       }`}
-      onClick={handleClick}
-      style={{ cursor: isReady ? 'pointer' : 'default' }}
     >
       {/* Background photo with dark overlay */}
       <div className="absolute inset-0">
@@ -118,18 +110,6 @@ export const IntroSplash: React.FC<IntroSplashProps> = ({ onComplete }) => {
         </div>
       </div>
 
-      {/* 터치 안내 */}
-      <div
-        className={`absolute bottom-20 z-10 transition-all duration-500 ${
-          isReady ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-        }`}
-      >
-        <div className="animate-pulse">
-          <p className="text-base text-white/60 tracking-wider">
-            터치하여 청첩장을 열어보세요
-          </p>
-        </div>
-      </div>
 
       <style>{`
         @keyframes handwrite {
