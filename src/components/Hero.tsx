@@ -39,22 +39,22 @@ export const Hero: React.FC<HeroProps> = ({ couple }) => {
 
       {/* Date info below photo */}
       <div className="flex-1 flex flex-col items-center justify-center py-12 px-8 animate-fade-in">
-        <div className="w-6 h-[1px] bg-[#a5c8e4] mx-auto mb-8" />
+        <div className="w-6 h-[1px] bg-[#8faabe] mx-auto mb-8" />
 
-        <p className="text-sm tracking-[0.3em] text-[#3d5f78] font-light mb-2">
+        <p className="text-sm tracking-[0.3em] text-[#1a1a1a] font-light mb-2">
           {couple.weddingDate}
         </p>
-        <p className="text-sm tracking-[0.2em] text-[#3d5f78] font-light mb-6">
+        <p className="text-sm tracking-[0.2em] text-[#1a1a1a] font-light mb-6">
           {couple.weddingTime}
         </p>
-        <p className="text-sm tracking-[0.15em] text-[#6a9bc0] font-light">
+        <p className="text-sm tracking-[0.15em] text-[#7a9cbc] font-light">
           {couple.weddingLocation}
         </p>
       </div>
 
       {/* Scroll indicator */}
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-[1px] h-6 bg-gradient-to-b from-transparent to-[#a5c8e4]" />
+        <div className="w-[1px] h-6 bg-gradient-to-b from-transparent to-[#8faabe]" />
       </div>
     </div>
   );

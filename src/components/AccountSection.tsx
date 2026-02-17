@@ -34,12 +34,12 @@ export const AccountSection: React.FC<AccountSectionProps> = ({ couple }) => {
     return (
       <div className="flex items-center justify-between bg-white/80 rounded-md px-4 py-3">
         <div>
-          <p className="text-sm text-[#6a9bc0] mb-1">{name}</p>
-          <p className="text-base text-[#3d5568] tracking-wider">{account}</p>
+          <p className="text-sm text-[#7a9cbc] mb-1">{name}</p>
+          <p className="text-base text-[#1a1a1a] tracking-wider">{account}</p>
         </div>
         <button
           onClick={() => copyToClipboard(account, fieldKey)}
-          className="flex-shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-full border border-[#a5c8e4]/30 text-sm text-[#3d5f78] hover:bg-[#e8f4fd] transition-colors"
+          className="flex-shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-full border border-[#8faabe]/30 text-sm text-[#1a1a1a] hover:bg-[#e8f4fd] transition-colors"
         >
           {copiedField === fieldKey ? (
             <>
@@ -71,19 +71,19 @@ export const AccountSection: React.FC<AccountSectionProps> = ({ couple }) => {
 
   return (
     <div className="text-center animate-fade-in-up">
-      <p className="text-[13px] tracking-[0.5em] text-[#6a9bc0] uppercase mb-8 font-light">
+      <p className="text-[13px] tracking-[0.5em] text-[#7a9cbc] uppercase mb-8 font-light">
         Account
       </p>
 
       <div className="flex justify-center mb-6">
-        <Wallet size={20} className="text-[#a5c8e4]" strokeWidth={1} />
+        <Wallet size={20} className="text-[#8faabe]" strokeWidth={1} />
       </div>
 
-      <p className="text-xl tracking-[0.2em] text-[#2c3e50] font-light mb-3">
+      <p className="text-xl tracking-[0.2em] text-[#1a1a1a] font-light mb-3">
         마음 전하실 곳
       </p>
 
-      <p className="text-sm text-[#6a9bc0] font-light mb-8 leading-relaxed">
+      <p className="text-sm text-[#7a9cbc] font-light mb-8 leading-relaxed">
         참석이 어려우신 분들을 위해<br />
         계좌번호를 안내드립니다
       </p>
@@ -91,10 +91,10 @@ export const AccountSection: React.FC<AccountSectionProps> = ({ couple }) => {
       <div className="space-y-3">
         {/* 신랑측 */}
         {groomAccounts.length > 0 && (
-          <div className="border border-[#a5c8e4]/20 rounded-lg overflow-hidden">
+          <div className="border border-[#8faabe]/20 rounded-lg overflow-hidden">
             <button
               onClick={() => setShowGroom(!showGroom)}
-              className="w-full flex items-center justify-between px-5 py-4 text-base text-[#3d5f78] hover:bg-[#f0f8ff]/50 transition-colors"
+              className="w-full flex items-center justify-between px-5 py-4 text-base text-[#1a1a1a] hover:bg-[#f0f8ff]/50 transition-colors"
             >
               <span className="tracking-wider">신랑측 계좌</span>
               {showGroom ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
@@ -111,10 +111,10 @@ export const AccountSection: React.FC<AccountSectionProps> = ({ couple }) => {
 
         {/* 신부측 */}
         {brideAccounts.length > 0 && (
-          <div className="border border-[#a5c8e4]/20 rounded-lg overflow-hidden">
+          <div className="border border-[#8faabe]/20 rounded-lg overflow-hidden">
             <button
               onClick={() => setShowBride(!showBride)}
-              className="w-full flex items-center justify-between px-5 py-4 text-base text-[#3d5f78] hover:bg-[#f0f8ff]/50 transition-colors"
+              className="w-full flex items-center justify-between px-5 py-4 text-base text-[#1a1a1a] hover:bg-[#f0f8ff]/50 transition-colors"
             >
               <span className="tracking-wider">신부측 계좌</span>
               {showBride ? <ChevronUp size={16} /> : <ChevronDown size={16} />}

@@ -55,26 +55,26 @@ export const InterviewSection: React.FC = () => {
   return (
     <>
       <div className="text-center animate-fade-in-up">
-        <p className="text-[13px] tracking-[0.5em] text-[#6a9bc0] uppercase mb-8 font-light">
+        <p className="text-[13px] tracking-[0.5em] text-[#7a9cbc] uppercase mb-8 font-light">
           Interview
         </p>
 
         <div className="flex justify-center mb-6">
-          <MessageCircle size={20} className="text-[#a5c8e4]" strokeWidth={1} />
+          <MessageCircle size={20} className="text-[#8faabe]" strokeWidth={1} />
         </div>
 
-        <p className="text-xl tracking-[0.2em] text-[#2c3e50] font-light mb-4">
+        <p className="text-xl tracking-[0.2em] text-[#1a1a1a] font-light mb-4">
           웨딩 인터뷰
         </p>
 
-        <p className="text-base text-[#3d5f78] font-light leading-relaxed mb-6">
+        <p className="text-base text-[#1a1a1a] font-light leading-relaxed mb-6">
           두 분의 인터뷰를 준비했습니다.<br />
           인터뷰를 확인해보세요.
         </p>
 
         <button
           onClick={() => setShowModal(true)}
-          className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-[#5da2d5] text-white text-base tracking-wider hover:bg-[#4a8fc2] transition-colors shadow-md"
+          className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-[#2b5797] text-white text-base tracking-wider hover:bg-[#1e3f6e] transition-colors shadow-md"
         >
           <MessageCircle size={14} />
           인터뷰 읽어보기
@@ -88,8 +88,8 @@ export const InterviewSection: React.FC = () => {
           <div className="relative bg-white rounded-2xl w-full max-w-md max-h-[90vh] overflow-y-auto shadow-2xl">
             {/* 모달 헤더 */}
             <div className="sticky top-0 bg-white flex items-center justify-between px-6 py-4 border-b border-gray-100 rounded-t-2xl z-10">
-              <p className="text-lg text-[#2c3e50] tracking-wider font-medium">웨딩 인터뷰</p>
-              <button onClick={() => setShowModal(false)} className="text-[#6a9bc0] hover:text-[#3d5f78] transition-colors">
+              <p className="text-lg text-[#1a1a1a] tracking-wider font-medium">웨딩 인터뷰</p>
+              <button onClick={() => setShowModal(false)} className="text-[#7a9cbc] hover:text-[#1a1a1a] transition-colors">
                 <X size={22} />
               </button>
             </div>
@@ -101,27 +101,27 @@ export const InterviewSection: React.FC = () => {
                 {funnyInterviews.map((item, index) => (
                   <div
                     key={index}
-                    className="bg-[#f8fbff] rounded-lg p-4 border border-[#a5c8e4]/10 text-left"
+                    className="bg-[#f8fbff] rounded-lg p-4 border border-[#8faabe]/10 text-left"
                   >
-                    <p className="text-base text-[#5da2d5] font-medium mb-3 flex items-start gap-2">
-                      <span className="text-[#6a9bc0] font-light">Q.</span>
+                    <p className="text-base text-[#2b5797] font-medium mb-3 flex items-start gap-2">
+                      <span className="text-[#7a9cbc] font-light">Q.</span>
                       {item.question}
                     </p>
 
-                    <div className="mb-2 pl-2 border-l-2 border-[#5da2d5]/30">
-                      <p className="text-[13px] text-[#5da2d5] tracking-wider mb-1 font-medium">
+                    <div className="mb-2 pl-2 border-l-2 border-[#2b5797]/30">
+                      <p className="text-[13px] text-[#2b5797] tracking-wider mb-1 font-medium">
                         신랑
                       </p>
-                      <p className="text-sm text-[#3d5568] font-light leading-relaxed">
+                      <p className="text-sm text-[#1a1a1a] font-light leading-relaxed">
                         {item.groomAnswer}
                       </p>
                     </div>
 
-                    <div className="pl-2 border-l-2 border-[#e8a0b4]/30">
-                      <p className="text-[13px] text-[#e8a0b4] tracking-wider mb-1 font-medium">
+                    <div className="pl-2 border-l-2 border-[#c97b8e]/30">
+                      <p className="text-[13px] text-[#c97b8e] tracking-wider mb-1 font-medium">
                         신부
                       </p>
-                      <p className="text-sm text-[#3d5568] font-light leading-relaxed">
+                      <p className="text-sm text-[#1a1a1a] font-light leading-relaxed">
                         {item.brideAnswer}
                       </p>
                     </div>
@@ -131,10 +131,10 @@ export const InterviewSection: React.FC = () => {
 
               {/* 진심 파트 전환 */}
               <div className="text-center py-8">
-                <Heart size={14} className="text-[#e8a0b4] mx-auto mb-4" fill="#e8a0b4" />
-                <p className="text-base text-[#3d5f78] font-light leading-relaxed">
+                <Heart size={14} className="text-[#c97b8e] mx-auto mb-4" fill="#c97b8e" />
+                <p className="text-base text-[#1a1a1a] font-light leading-relaxed">
                   장난이었고…<br />
-                  <span className="text-[#2c3e50] font-medium mt-1 inline-block">이제는 진짜 이야기입니다.</span>
+                  <span className="text-[#1a1a1a] font-medium mt-1 inline-block">이제는 진짜 이야기입니다.</span>
                 </p>
               </div>
 
@@ -143,30 +143,30 @@ export const InterviewSection: React.FC = () => {
                 {seriousInterviews.map((item, index) => (
                   <div
                     key={index}
-                    className="bg-[#f8fbff] rounded-lg p-4 border border-[#a5c8e4]/10 text-left"
+                    className="bg-[#f8fbff] rounded-lg p-4 border border-[#8faabe]/10 text-left"
                   >
-                    <p className="text-base text-[#5da2d5] font-medium mb-3 flex items-start gap-2">
-                      <span className="text-[#6a9bc0] font-light">Q.</span>
+                    <p className="text-base text-[#2b5797] font-medium mb-3 flex items-start gap-2">
+                      <span className="text-[#7a9cbc] font-light">Q.</span>
                       {item.question}
                     </p>
 
                     {item.groomAnswer && (
-                      <div className={`pl-2 border-l-2 border-[#5da2d5]/30 ${item.brideAnswer ? 'mb-3' : ''}`}>
-                        <p className="text-[13px] text-[#5da2d5] tracking-wider mb-1 font-medium">
+                      <div className={`pl-2 border-l-2 border-[#2b5797]/30 ${item.brideAnswer ? 'mb-3' : ''}`}>
+                        <p className="text-[13px] text-[#2b5797] tracking-wider mb-1 font-medium">
                           신랑
                         </p>
-                        <p className="text-sm text-[#3d5568] font-light leading-relaxed whitespace-pre-line">
+                        <p className="text-sm text-[#1a1a1a] font-light leading-relaxed whitespace-pre-line">
                           {item.groomAnswer}
                         </p>
                       </div>
                     )}
 
                     {item.brideAnswer && (
-                      <div className="pl-2 border-l-2 border-[#e8a0b4]/30">
-                        <p className="text-[13px] text-[#e8a0b4] tracking-wider mb-1 font-medium">
+                      <div className="pl-2 border-l-2 border-[#c97b8e]/30">
+                        <p className="text-[13px] text-[#c97b8e] tracking-wider mb-1 font-medium">
                           신부
                         </p>
-                        <p className="text-sm text-[#3d5568] font-light leading-relaxed whitespace-pre-line">
+                        <p className="text-sm text-[#1a1a1a] font-light leading-relaxed whitespace-pre-line">
                           {item.brideAnswer}
                         </p>
                       </div>

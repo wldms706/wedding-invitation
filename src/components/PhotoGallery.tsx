@@ -65,15 +65,15 @@ const PhotoItem: React.FC<{ src: string; index: number }> = ({ src, index }) => 
 export const PhotoGallery: React.FC = () => {
   return (
     <div className="text-center animate-fade-in-up">
-      <p className="text-[13px] tracking-[0.5em] text-[#6a9bc0] uppercase mb-8 font-light">
+      <p className="text-[13px] tracking-[0.5em] text-[#7a9cbc] uppercase mb-8 font-light">
         Gallery
       </p>
 
       <div className="flex justify-center mb-6">
-        <Camera size={20} className="text-[#a5c8e4]" strokeWidth={1} />
+        <Camera size={20} className="text-[#8faabe]" strokeWidth={1} />
       </div>
 
-      <p className="text-xl tracking-[0.2em] text-[#2c3e50] font-light mb-8">
+      <p className="text-xl tracking-[0.2em] text-[#1a1a1a] font-light mb-8">
         우리의 순간들
       </p>
 

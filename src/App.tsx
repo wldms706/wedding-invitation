@@ -51,7 +51,7 @@ const App: React.FC = () => {
   const [greeting, setGreeting] = useState("서로의 다름을 사랑으로 채워가며, \n평생의 동반자가 되기로 약속했습니다. \n귀한 발걸음으로 저희의 시작을 축복해 주세요.");
 
   return (
-    <div className="relative max-w-md mx-auto min-h-screen shadow-2xl bg-[#f0f8ff] text-[#2c3e50] overflow-x-hidden pb-10">
+    <div className="relative max-w-md mx-auto min-h-screen shadow-2xl bg-[#f0f8ff] text-[#1a1a1a] overflow-x-hidden pb-10">
       {/* Intro Splash */}
       {showIntro && <IntroSplash onComplete={() => setShowIntro(false)} />}
 
@@ -110,7 +110,7 @@ const App: React.FC = () => {
         <DesignLineup />
       </div>}
 
-      {!showIntro && <footer className="text-center py-20 text-[#6a9bc0] text-[13px] font-light tracking-[0.3em] uppercase">
+      {!showIntro && <footer className="text-center py-20 text-[#7a9cbc] text-[13px] font-light tracking-[0.3em] uppercase">
         <p>&copy; 2026 {couple.groomName} & {couple.brideName} WEDDING<br/>DESIGNED BY JIEUN</p>
       </footer>}
 

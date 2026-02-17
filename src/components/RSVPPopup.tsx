@@ -53,19 +53,19 @@ export const RSVPPopup: React.FC<RSVPPopupProps> = ({ couple, onRSVPClick }) => 
         {/* Close button */}
         <button
           onClick={handleClose}
-          className="absolute top-4 right-4 text-[#8fb8d4] hover:text-[#3d5f78] transition-colors"
+          className="absolute top-4 right-4 text-[#9fb5c8] hover:text-[#1a1a1a] transition-colors"
         >
           <X size={22} />
         </button>
 
         <div className="px-8 pt-10 pb-6 text-center">
           {/* Title */}
-          <h2 className="text-2xl tracking-[0.15em] text-[#2c3e50] font-light mb-6">
+          <h2 className="text-2xl tracking-[0.15em] text-[#1a1a1a] font-light mb-6">
             참석 여부 전달
           </h2>
 
           {/* Message */}
-          <p className="text-base text-[#3d5f78] font-light leading-relaxed mb-8">
+          <p className="text-base text-[#1a1a1a] font-light leading-relaxed mb-8">
             소중한 시간을 내어 결혼식에<br />
             참석해주시는 모든 분들께 감사드립니다.<br />
             참석 여부를 회신해 주시면<br />
@@ -73,23 +73,23 @@ export const RSVPPopup: React.FC<RSVPPopupProps> = ({ couple, onRSVPClick }) => 
           </p>
 
           {/* Divider */}
-          <div className="border-t border-dashed border-[#a5c8e4]/30 mx-4 mb-6" />
+          <div className="border-t border-dashed border-[#8faabe]/30 mx-4 mb-6" />
 
           {/* Couple info */}
           <div className="space-y-2.5 mb-8 text-left px-2">
-            <div className="flex items-center gap-2.5 text-base text-[#3d5568]">
-              <Heart size={14} className="text-[#e8a0b4] flex-shrink-0" />
+            <div className="flex items-center gap-2.5 text-base text-[#1a1a1a]">
+              <Heart size={14} className="text-[#c97b8e] flex-shrink-0" />
               <span>
-                <span className="text-[#5da2d5] text-sm mr-1">신랑</span> {couple.groomName},
-                <span className="text-[#e8a0b4] text-sm ml-2 mr-1">신부</span> {couple.brideName}
+                <span className="text-[#2b5797] text-sm mr-1">신랑</span> {couple.groomName},
+                <span className="text-[#c97b8e] text-sm ml-2 mr-1">신부</span> {couple.brideName}
               </span>
             </div>
-            <div className="flex items-center gap-2.5 text-base text-[#3d5568]">
-              <Calendar size={14} className="text-[#6a9bc0] flex-shrink-0" />
+            <div className="flex items-center gap-2.5 text-base text-[#1a1a1a]">
+              <Calendar size={14} className="text-[#7a9cbc] flex-shrink-0" />
               <span>2026년 4월 19일 일요일 오후 2시 20분</span>
             </div>
-            <div className="flex items-center gap-2.5 text-base text-[#3d5568]">
-              <MapPin size={14} className="text-[#6a9bc0] flex-shrink-0" />
+            <div className="flex items-center gap-2.5 text-base text-[#1a1a1a]">
+              <MapPin size={14} className="text-[#7a9cbc] flex-shrink-0" />
               <span>{couple.weddingLocation}</span>
             </div>
           </div>
@@ -97,7 +97,7 @@ export const RSVPPopup: React.FC<RSVPPopupProps> = ({ couple, onRSVPClick }) => 
           {/* RSVP Button */}
           <button
             onClick={handleRSVP}
-            className="w-full py-3.5 bg-[#5da2d5] text-white text-base tracking-[0.2em] rounded-xl hover:bg-[#4a8dbd] transition-colors mb-4"
+            className="w-full py-3.5 bg-[#2b5797] text-white text-base tracking-[0.2em] rounded-xl hover:bg-[#1e3f6e] transition-colors mb-4"
           >
             참석 여부 전달
           </button>
@@ -106,7 +106,7 @@ export const RSVPPopup: React.FC<RSVPPopupProps> = ({ couple, onRSVPClick }) => 
         {/* Dismiss today */}
         <button
           onClick={handleDismissToday}
-          className="w-full py-4 border-t border-[#f0f4f8] text-sm text-[#8fb8d4] tracking-wider hover:text-[#6a9bc0] transition-colors flex items-center justify-center gap-1.5"
+          className="w-full py-4 border-t border-[#f0f4f8] text-sm text-[#9fb5c8] tracking-wider hover:text-[#7a9cbc] transition-colors flex items-center justify-center gap-1.5"
         >
           <CheckCircle size={12} />
           오늘하루 보지않기

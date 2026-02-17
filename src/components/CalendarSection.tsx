@@ -22,11 +22,11 @@ export const CalendarSection: React.FC = () => {
 
   return (
     <div className="text-center animate-fade-in-up">
-      <p className="text-[13px] tracking-[0.5em] text-[#6a9bc0] uppercase mb-8 font-light">
+      <p className="text-[13px] tracking-[0.5em] text-[#7a9cbc] uppercase mb-8 font-light">
         Calendar
       </p>
 
-      <p className="text-xl tracking-[0.3em] text-[#2c3e50] font-light mb-8">
+      <p className="text-xl tracking-[0.3em] text-[#1a1a1a] font-light mb-8">
         2026년 4월
       </p>
 
@@ -36,7 +36,7 @@ export const CalendarSection: React.FC = () => {
           <div
             key={name}
             className={`text-sm tracking-wider py-1 font-light ${
-              i === 0 ? 'text-[#d4a0a0]' : i === 6 ? 'text-[#5da2d5]' : 'text-[#6a9bc0]'
+              i === 0 ? 'text-[#c48a8a]' : i === 6 ? 'text-[#2b5797]' : 'text-[#7a9cbc]'
             }`}
           >
             {name}
@@ -55,15 +55,15 @@ export const CalendarSection: React.FC = () => {
                 : day === weddingDay
                 ? 'text-white'
                 : i % 7 === 0
-                ? 'text-[#d4a0a0]'
+                ? 'text-[#c48a8a]'
                 : i % 7 === 6
-                ? 'text-[#5da2d5]'
-                : 'text-[#3d5f78]'
+                ? 'text-[#2b5797]'
+                : 'text-[#1a1a1a]'
             }`}
           >
             {day !== null && day === weddingDay && (
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-9 h-9 rounded-full bg-[#5da2d5]" />
+                <div className="w-9 h-9 rounded-full bg-[#2b5797]" />
               </div>
             )}
             <span className="relative z-10">{day}</span>
@@ -71,8 +71,8 @@ export const CalendarSection: React.FC = () => {
         ))}
       </div>
 
-      <div className="mt-6 w-12 h-[1px] bg-[#a5c8e4]/40 mx-auto" />
-      <p className="mt-4 text-sm tracking-[0.2em] text-[#6a9bc0] font-light">
+      <div className="mt-6 w-12 h-[1px] bg-[#8faabe]/40 mx-auto" />
+      <p className="mt-4 text-sm tracking-[0.2em] text-[#7a9cbc] font-light">
         일요일 오후 2시 20분
       </p>
     </div>

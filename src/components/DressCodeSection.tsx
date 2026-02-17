@@ -12,19 +12,19 @@ export const DressCodeSection: React.FC = () => {
 
   return (
     <div className="text-center animate-fade-in-up">
-      <p className="text-[13px] tracking-[0.5em] text-[#6a9bc0] uppercase mb-8 font-light">
+      <p className="text-[13px] tracking-[0.5em] text-[#7a9cbc] uppercase mb-8 font-light">
         Dress Code
       </p>
 
       <div className="flex justify-center mb-6">
-        <Shirt size={20} className="text-[#a5c8e4]" strokeWidth={1} />
+        <Shirt size={20} className="text-[#8faabe]" strokeWidth={1} />
       </div>
 
-      <p className="text-xl tracking-[0.2em] text-[#2c3e50] font-light mb-4">
+      <p className="text-xl tracking-[0.2em] text-[#1a1a1a] font-light mb-4">
         드레스코드
       </p>
 
-      <p className="text-base text-[#3d5f78] font-light leading-relaxed mb-8">
+      <p className="text-base text-[#1a1a1a] font-light leading-relaxed mb-8">
         격식있는 자리에 어울리는<br />
         세미 포멀 복장을 부탁드립니다
       </p>
@@ -37,7 +37,7 @@ export const DressCodeSection: React.FC = () => {
               className={`w-10 h-10 rounded-full ${c.border ? 'border border-[#d4d4d4]' : ''}`}
               style={{ backgroundColor: c.color }}
             />
-            <span className="text-[13px] text-[#6a9bc0] tracking-wider">{c.name}</span>
+            <span className="text-[13px] text-[#7a9cbc] tracking-wider">{c.name}</span>
           </div>
         ))}
       </div>

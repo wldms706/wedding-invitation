@@ -50,15 +50,15 @@ const timeline: TimelineItem[] = [
 export const OurStory: React.FC = () => {
   return (
     <div className="text-center animate-fade-in-up">
-      <p className="text-[13px] tracking-[0.5em] text-[#6a9bc0] uppercase mb-8 font-light">
+      <p className="text-[13px] tracking-[0.5em] text-[#7a9cbc] uppercase mb-8 font-light">
         Our Story
       </p>
 
       <div className="flex justify-center mb-6">
-        <Heart size={20} className="text-[#a5c8e4]" strokeWidth={1} />
+        <Heart size={20} className="text-[#8faabe]" strokeWidth={1} />
       </div>
 
-      <p className="text-xl tracking-[0.2em] text-[#2c3e50] font-light mb-12">
+      <p className="text-xl tracking-[0.2em] text-[#1a1a1a] font-light mb-12">
         우리의 이야기
       </p>
 
@@ -72,13 +72,13 @@ export const OurStory: React.FC = () => {
                 <div className="pt-2">
                   {/* Text centered above */}
                   <div className="text-center mb-4 px-4">
-                    <p className="text-[13px] text-[#6a9bc0] tracking-wider mb-1.5 font-light">
+                    <p className="text-[13px] text-[#7a9cbc] tracking-wider mb-1.5 font-light">
                       {item.date}
                     </p>
-                    <p className="text-base text-[#2c3e50] tracking-wider mb-2 font-medium">
+                    <p className="text-base text-[#1a1a1a] tracking-wider mb-2 font-medium">
                       {item.title}
                     </p>
-                    <p className="text-sm text-[#3d5f78] font-light leading-relaxed whitespace-pre-line">
+                    <p className="text-sm text-[#1a1a1a] font-light leading-relaxed whitespace-pre-line">
                       {item.description}
                     </p>
                   </div>
@@ -126,11 +126,11 @@ export const OurStory: React.FC = () => {
                       ) : (
                         <div className="w-full aspect-[4/5] rounded-lg bg-gradient-to-br from-[#e8f4fd] to-[#d4e8f5] border border-[#a5c8e4]/20 flex flex-col items-center justify-center gap-2 shadow-sm">
                           {item.mediaType === 'video' ? (
-                            <Film size={24} className="text-[#a5c8e4]" />
+                            <Film size={24} className="text-[#8faabe]" />
                           ) : (
-                            <Camera size={24} className="text-[#a5c8e4]" />
+                            <Camera size={24} className="text-[#8faabe]" />
                           )}
-                          <span className="text-[13px] text-[#6a9bc0] tracking-wider">
+                          <span className="text-[13px] text-[#7a9cbc] tracking-wider">
                             {item.mediaType === 'video' ? 'VIDEO' : 'PHOTO'}
                           </span>
                         </div>
@@ -140,13 +140,13 @@ export const OurStory: React.FC = () => {
 
                   {/* Text */}
                   <div className={`w-[45%] flex-shrink-0 pt-4 ${item.align === 'left' ? 'text-left' : 'text-right'}`}>
-                    <p className="text-[13px] text-[#6a9bc0] tracking-wider mb-1.5 font-light">
+                    <p className="text-[13px] text-[#7a9cbc] tracking-wider mb-1.5 font-light">
                       {item.date}
                     </p>
-                    <p className="text-base text-[#2c3e50] tracking-wider mb-2 font-medium">
+                    <p className="text-base text-[#1a1a1a] tracking-wider mb-2 font-medium">
                       {item.title}
                     </p>
-                    <p className="text-sm text-[#3d5f78] font-light leading-relaxed whitespace-pre-line">
+                    <p className="text-sm text-[#1a1a1a] font-light leading-relaxed whitespace-pre-line">
                       {item.description}
                     </p>
                   </div>
@@ -156,7 +156,7 @@ export const OurStory: React.FC = () => {
               {/* Divider between items */}
               {index < timeline.length - 1 && (
                 <div className="flex justify-center mt-8">
-                  <div className="w-[1px] h-8 bg-[#a5c8e4]/30" />
+                  <div className="w-[1px] h-8 bg-[#8faabe]/30" />
                 </div>
               )}
             </div>
@@ -165,7 +165,7 @@ export const OurStory: React.FC = () => {
 
         {/* End heart */}
         <div className="flex justify-center mt-8">
-          <Heart size={12} className="text-[#5da2d5]" fill="#5da2d5" />
+          <Heart size={12} className="text-[#2b5797]" fill="#2b5797" />
         </div>
       </div>
     </div>
