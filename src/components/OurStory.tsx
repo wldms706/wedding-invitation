@@ -32,7 +32,7 @@ const timeline: TimelineItem[] = [
   {
     date: '2025.08',
     title: '4개월',
-    description: '4개월차부터 동거를\n시작했어요.',
+    description: '4개월때부터\n함께했어요.',
     mediaType: 'photo',
     mediaSrc: '/images/story/4months.jpg',
     align: 'left',

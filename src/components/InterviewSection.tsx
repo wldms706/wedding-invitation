@@ -27,7 +27,7 @@ const funnyInterviews: QnA[] = [
   {
     question: '결혼 후 각오 한마디',
     groomAnswer: '아내를 빛나게 해주는 남편이 되겠습니다.',
-    brideAnswer: '남편이 길을 잃지 않게 잘 관리하겠습니다.',
+    brideAnswer: '남편이 더 빛날 수 있도록 옆에서 응원하겠습니다.',
   },
   {
     question: '가정의 의사결정권자는?',
