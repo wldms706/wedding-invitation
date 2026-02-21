@@ -4,7 +4,7 @@ import { Volume2, VolumeX } from 'lucide-react';
 export const BgmPlayer: React.FC = () => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [hasInteracted, setHasInteracted] = useState(false);
+  const startedRef = useRef(false);
 
   useEffect(() => {
     const audio = new Audio('/bgm.mp3');
@@ -13,25 +13,32 @@ export const BgmPlayer: React.FC = () => {
     audioRef.current = audio;
 
     const tryPlay = () => {
-      if (!hasInteracted && audioRef.current) {
-        audioRef.current.play().then(() => {
-          setIsPlaying(true);
-          setHasInteracted(true);
-        }).catch(() => {});
-      }
-      document.removeEventListener('click', tryPlay);
-      document.removeEventListener('touchstart', tryPlay);
-      document.removeEventListener('scroll', tryPlay);
+      if (startedRef.current || !audioRef.current) return;
+      audioRef.current.play().then(() => {
+        startedRef.current = true;
+        setIsPlaying(true);
+        cleanup();
+      }).catch(() => {});
     };
 
-    document.addEventListener('click', tryPlay, { once: true });
-    document.addEventListener('touchstart', tryPlay, { once: true });
-    document.addEventListener('scroll', tryPlay, { once: true });
+    const cleanup = () => {
+      document.removeEventListener('click', tryPlay, true);
+      document.removeEventListener('touchstart', tryPlay, true);
+      document.removeEventListener('touchend', tryPlay, true);
+      document.removeEventListener('scroll', tryPlay, true);
+    };
+
+    // 즉시 시도 (일부 브라우저에서 동작)
+    tryPlay();
+
+    // 유저 인터랙션 대기 (capture phase로 빠르게 감지)
+    document.addEventListener('click', tryPlay, true);
+    document.addEventListener('touchstart', tryPlay, true);
+    document.addEventListener('touchend', tryPlay, true);
+    document.addEventListener('scroll', tryPlay, true);
 
     return () => {
-      document.removeEventListener('click', tryPlay);
-      document.removeEventListener('touchstart', tryPlay);
-      document.removeEventListener('scroll', tryPlay);
+      cleanup();
       if (audioRef.current) {
         audioRef.current.pause();
         audioRef.current = null;
@@ -46,8 +53,8 @@ export const BgmPlayer: React.FC = () => {
       setIsPlaying(false);
     } else {
       audioRef.current.play().then(() => {
+        startedRef.current = true;
         setIsPlaying(true);
-        setHasInteracted(true);
       }).catch(() => {});
     }
   };
