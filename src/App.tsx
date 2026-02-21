@@ -18,6 +18,7 @@ import { OurStory } from './components/OurStory';
 import { CoupleProfile } from './components/CoupleProfile';
 import { ContactSection } from './components/ContactSection';
 import { InterviewSection } from './components/InterviewSection';
+import { BgmPlayer } from './components/BgmPlayer';
 import { CoupleInfo } from './types';
 
 
@@ -54,6 +55,9 @@ const App: React.FC = () => {
     <div className="relative max-w-md mx-auto min-h-screen shadow-2xl bg-[#f0f8ff] text-[#1a1a1a] overflow-x-hidden pb-10">
       {/* Intro Splash */}
       {showIntro && <IntroSplash onComplete={() => setShowIntro(false)} />}
+
+      {/* BGM Player */}
+      {!showIntro && <BgmPlayer />}
 
       {/* Main Sections */}
       {!showIntro && <Hero couple={couple} />}
