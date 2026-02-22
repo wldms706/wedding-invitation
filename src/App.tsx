@@ -19,6 +19,7 @@ import { CoupleProfile } from './components/CoupleProfile';
 import { ContactSection } from './components/ContactSection';
 import { InterviewSection } from './components/InterviewSection';
 import { BgmPlayer } from './components/BgmPlayer';
+import { FlowerPetals } from './components/FlowerPetals';
 import { CoupleInfo } from './types';
 
 
@@ -56,8 +57,9 @@ const App: React.FC = () => {
       {/* Intro Splash */}
       {showIntro && <IntroSplash onComplete={() => setShowIntro(false)} />}
 
-      {/* BGM Player */}
+      {/* BGM Player & Flower Petals */}
       {!showIntro && <BgmPlayer />}
+      {!showIntro && <FlowerPetals />}
 
       {/* Main Sections */}
       {!showIntro && <Hero couple={couple} />}
