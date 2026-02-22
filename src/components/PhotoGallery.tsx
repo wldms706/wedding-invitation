@@ -14,6 +14,8 @@ const portraitPhotos = [
   '/images/gallery/09.jpg',
   '/images/gallery/10.jpg',
   '/images/gallery/12.jpg',
+  '/images/gallery/17.jpg',
+  '/images/gallery/18.jpg',
 ];
 
 const landscapePhotos = [
