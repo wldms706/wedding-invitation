@@ -28,11 +28,11 @@ export const Hero: React.FC<HeroProps> = ({ couple }) => {
           </span>
         </div>
 
-        {/* Our Wedding Day - lower center on photo */}
+        {/* Hero text - lower center on photo */}
         <div className="absolute inset-0 flex items-end justify-center pb-20">
           <h1 className="text-5xl text-white font-bold leading-tight text-center tracking-normal"
             style={{ fontFamily: "'Playfair Display', serif", textShadow: '0 2px 16px rgba(0,0,0,0.4)' }}>
-            Our<br />Wedding<br />Day
+            The Beginning<br />of Us
           </h1>
         </div>
       </div>
