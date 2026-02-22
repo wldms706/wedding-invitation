@@ -25,8 +25,8 @@ export const DressCodeSection: React.FC = () => {
       </p>
 
       <p className="text-base text-[#1a1a1a] font-light leading-relaxed mb-8">
-        격식있는 자리에 어울리는<br />
-        세미 포멀 복장을 부탁드립니다
+        드레스코드는 권장사항입니다.<br />
+        안 입으셔도 밥은 드립니다 🍚
       </p>
 
       {/* Color palette */}
