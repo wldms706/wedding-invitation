@@ -30,8 +30,8 @@ export const Hero: React.FC<HeroProps> = ({ couple }) => {
 
         {/* Hero text - lower center on photo */}
         <div className="absolute inset-0 flex items-end justify-center pb-20">
-          <h1 className="text-5xl text-white font-bold leading-tight text-center tracking-normal"
-            style={{ fontFamily: "'Playfair Display', serif", textShadow: '0 2px 16px rgba(0,0,0,0.4)' }}>
+          <h1 className="text-6xl text-white font-normal leading-snug text-center"
+            style={{ fontFamily: "'Great Vibes', cursive", textShadow: '0 2px 16px rgba(0,0,0,0.4)' }}>
             The Beginning<br />of Us
           </h1>
         </div>
