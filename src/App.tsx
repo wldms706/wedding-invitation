@@ -19,6 +19,7 @@ import { CoupleProfile } from './components/CoupleProfile';
 import { ContactSection } from './components/ContactSection';
 import { InterviewSection } from './components/InterviewSection';
 import { BgmPlayer } from './components/BgmPlayer';
+import { PhotoBoothNotice } from './components/PhotoBoothNotice';
 import { FlowerPetals } from './components/FlowerPetals';
 import { CoupleInfo } from './types';
 
@@ -93,6 +94,9 @@ const App: React.FC = () => {
         </div>
         <div className="section-card">
           <LuckyDrawNotice />
+        </div>
+        <div className="section-card">
+          <PhotoBoothNotice />
         </div>
 
         <div className="section-card">
